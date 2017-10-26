@@ -18,6 +18,8 @@
 </div>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
+    {{userType}}
+    <button (click)="changeClass()">Change Class</button>
       <table class="table table-striped table-condensed table-bordered">
         <tr>
           <th>Sr No.</th>
@@ -29,7 +31,7 @@
         <tr *ngFor="let product of products; let i=index">
           <td>{{i+1}}</td>
           <td>{{product.id}}</td>
-          <td>{{product.name | titlecase}}
+          <td [ngClass]="[myCssClass,'strike']" [ngStyle]="{'color':colorName,'font-size.px':size}">{{product.name | titlecase}}
             <span class="badge" *ngIf="product.mfgDate.getFullYear()===currentYear">New</span>
           </td>
           <td>{{product.price | currency:'INR': true}}</td>

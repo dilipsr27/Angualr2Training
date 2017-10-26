@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../models/product';
 
 @Component({
@@ -24,11 +24,22 @@ export class HomeComponent{
 private currentYear:number = new Date().getFullYear();
 
 private count:number=3;
-  
+private myCssClass = "highlight";
+private colorName:string = 'red';
+private size:number = 20;
+
+@Input() private userType:string;
   constructor() {
       this.name = "Riyaz Hawaldar";
       this.location = "Mumbai";
       this.today = new Date();
    }
-
+   public changeClass(){
+     if(this.myCssClass=="highlight"){
+      this.myCssClass = "strike";
+     }else{
+      this.myCssClass = "highlight";
+     }
+     
+   }
 }
