@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -9,6 +10,7 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { InventoryRouterModule } from './modules/inventory-router.module';
 import { ContactComponent } from './components/contact/contact.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +20,12 @@ import { ContactComponent } from './components/contact/contact.component';
     MyDatePipe,
     HighlightDirective,
     PageNotFoundComponent,
-    ContactComponent
+    ContactComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     InventoryRouterModule
   ],
   providers: [],
