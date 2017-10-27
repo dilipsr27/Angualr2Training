@@ -22,4 +22,12 @@ export class AddProductComponent implements OnInit {
   ngOnInit() {
   }
 
+  public save(frm){
+    if(frm.valid){
+      console.log(this.product);
+    }else{
+      alert("Invalid Form")
+    }
+  }
+
 }
