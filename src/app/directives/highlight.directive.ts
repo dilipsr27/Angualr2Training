@@ -15,11 +15,11 @@ export class HighlightDirective {
    }
 
    @HostListener("mouseenter")
-   public onMouseEnter(){
+   public changeColor(){
     this.renderer.setElementStyle(this.el.nativeElement,"backgroundColor",this.myColorName);
    }
    @HostListener("mouseleave")
-   public onMouseLeave(){
+   public resetColor(){
     this.renderer.setElementStyle(this.el.nativeElement,"backgroundColor",null);
   }
 
