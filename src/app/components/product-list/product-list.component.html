@@ -1,0 +1,13 @@
+<h2>All Products</h2>
+<div class="row">
+  <div class="col-sm-3" *ngFor="let p of products">
+    <div class="thumbnail thumbnail-item">
+      <h3>{{p.name}}</h3>
+      <p>Price: {{p.price}}</p>
+      <p>
+        <a class="btn btn-info" [routerLink]="'/add-cart'">Add To Cart</a>
+        <a class="btn btn-default" [routerLink]="'/add-cart'">Add To Wishlist</a>
+      </p>
+    </div>
+  </div>
+</div>

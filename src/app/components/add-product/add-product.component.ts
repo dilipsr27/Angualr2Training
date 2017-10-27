@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../models/category';
 import { Product } from '../../models/product';
+import { ProductService } from '../../services/product.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'add-product',
@@ -8,14 +11,13 @@ import { Product } from '../../models/product';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-
   private categories:Category[]=[
     {id:1, name:'Electronics', description:'Mobiles and Laptops'},
     {id:2, name:'Home appliances', description:'House hold items'},
     {id:3, name:'Cosmetics', description:'Cosmetic items'}
   ];
   private product:Product;
-  constructor() { 
+  constructor(private productSvc:ProductService, private router:Router) { 
     this.product = new Product()
   }
 
@@ -24,7 +26,8 @@ export class AddProductComponent implements OnInit {
 
   public save(frm){
     if(frm.valid){
-      console.log(this.product);
+     this.productSvc.addProducts(this.product);
+     this.router.navigate(['/list']);
     }else{
       alert("Invalid Form")
     }

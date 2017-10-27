@@ -11,6 +11,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { InventoryRouterModule } from './modules/inventory-router.module';
 import { ContactComponent } from './components/contact/contact.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { ProductService } from './services/product.service';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,15 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     HighlightDirective,
     PageNotFoundComponent,
     ContactComponent,
-    AddProductComponent
+    AddProductComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     InventoryRouterModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
