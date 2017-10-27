@@ -3,14 +3,26 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProductTableComponent } from './components/product-table/product-table.component';
+import { MyDatePipe } from './pipes/my.pipe';
+import { HighlightDirective } from './directives/highlight.directive';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { InventoryRouterModule } from './modules/inventory-router.module';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ProductTableComponent,
+    MyDatePipe,
+    HighlightDirective,
+    PageNotFoundComponent,
+    ContactComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    InventoryRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
