@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit, Renderer } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, Renderer, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[highlight]'
@@ -11,7 +11,17 @@ export class HighlightDirective {
 
    ngOnInit(){
      // this.el.nativeElement.style.backgroundColor=this.myColorName;
-     this.renderer.setElementStyle(this.el.nativeElement,"backgroundColor",this.myColorName);
+    // this.renderer.setElementStyle(this.el.nativeElement,"backgroundColor",this.myColorName);
    }
+
+   @HostListener("mouseenter")
+   public onMouseEnter(){
+    this.renderer.setElementStyle(this.el.nativeElement,"backgroundColor",this.myColorName);
+   }
+   @HostListener("mouseleave")
+   public onMouseLeave(){
+    this.renderer.setElementStyle(this.el.nativeElement,"backgroundColor",null);
+  }
+
    
 }
