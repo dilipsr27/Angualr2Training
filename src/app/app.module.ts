@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductTableComponent } from './components/product-table/product-table.component';
+import { MyDatePipe } from './pipes/my.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProductTableComponent
+    ProductTableComponent,
+    MyDatePipe
   ],
   imports: [
     BrowserModule

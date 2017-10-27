@@ -15,10 +15,10 @@ export class HomeComponent{
   private colors:string[]=['red','green','blue'];
   private products:Product[]=[
   {id:101,name:'Book',price:1250,mfgDate:new Date(2016,1,8)},
-  {id:102,name:'Pen',price:1200,mfgDate:new Date()},
-  {id:103,name:'Coca Cola',price:1000,mfgDate:new Date()},
-  {id:104,name:'Pepsi',price:90,mfgDate:new Date(2016,5,6)},
-  {id:105,name:'Thumbs Up',price:80,mfgDate:new Date()}
+  {id:102,name:'Pen',price:1200,mfgDate:new Date(2017,4,8)},
+  {id:103,name:'Coca Cola',price:1000,mfgDate:new Date(2016,3,2)},
+  {id:104,name:'Pepsi',price:90,mfgDate:undefined},
+  {id:105,name:'Thumbs Up',price:80,mfgDate:new Date(2016,5,8)}
 ];
 
 private currentYear:number = new Date().getFullYear();

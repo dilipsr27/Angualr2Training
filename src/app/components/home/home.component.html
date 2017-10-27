@@ -32,10 +32,10 @@
           <td>{{i+1}}</td>
           <td>{{product.id}}</td>
           <td [ngClass]="[myCssClass,'strike']" [ngStyle]="{'color':colorName,'font-size.px':size}">{{product.name | titlecase}}
-            <span class="badge" *ngIf="product.mfgDate.getFullYear()===currentYear">New</span>
+            <!--span class="badge" *ngIf="product.mfgDate.getFullYear()===currentYear">New</span-->
           </td>
           <td>{{product.price | currency:'INR': true}}</td>
-          <td>{{product.mfgDate | date:'dd-MMM-yyyy'}}</td>
+          <td>{{product.mfgDate | myDate | date:'shortDate'}}</td>
         </tr>
       </table>
   </div>
