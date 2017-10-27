@@ -5,8 +5,8 @@
       <h3>{{p.name}}</h3>
       <p>Price: {{p.price}}</p>
       <p>
-        <a class="btn btn-info" [routerLink]="'/add-cart'">Add To Cart</a>
-        <a class="btn btn-default" [routerLink]="'/add-cart'">Add To Wishlist</a>
+        <a class="btn btn-success" [routerLink]="['/add-cart',p.id]">Add To Cart</a>
+        <a class="btn btn-info" [routerLink]="['/add-cart',p.id]">Add To Wishlist</a>
       </p>
     </div>
   </div>
