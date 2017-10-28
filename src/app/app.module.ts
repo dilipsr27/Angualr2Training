@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -16,6 +16,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { MinValidator } from './validators/min-validator.directive';
 import { MaxValidator } from './validators/max-validator.directive';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { CategoryService } from './services/category.service';
 
 @NgModule({
   declarations: [
@@ -35,9 +36,10 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     InventoryRouterModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

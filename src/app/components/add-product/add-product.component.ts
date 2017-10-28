@@ -3,6 +3,7 @@ import { Category } from '../../models/category';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
+import { CategoryService } from '../../services/category.service';
 
 
 @Component({
@@ -11,17 +12,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-  private categories:Category[]=[
-    {id:1, name:'Electronics', description:'Mobiles and Laptops'},
-    {id:2, name:'Home appliances', description:'House hold items'},
-    {id:3, name:'Cosmetics', description:'Cosmetic items'}
-  ];
+  private categories:Category[];
   private product:Product;
-  constructor(private productSvc:ProductService, private router:Router) { 
+  constructor(private productSvc:ProductService, private categorySvc:CategoryService, private router:Router) { 
     this.product = new Product()
   }
 
   ngOnInit() {
+    this.categories = this.categorySvc.getCategories();
   }
 
   public save(frm){

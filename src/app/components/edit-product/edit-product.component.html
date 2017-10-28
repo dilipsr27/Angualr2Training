@@ -1,3 +1,62 @@
-<p>
-  edit-product works!
-</p>
+<div class="row">
+  <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
+    <h2>Edit Product</h2>
+    <form class="form-horizontal" [formGroup]="form" (submit)="update(form)">
+        <div class="form-group">
+            <label class="control-label col-md-3" for="name">Id</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" id=product_id formControlName="id" readonly/>
+            </div>
+          </div>
+        <div class="form-group">
+            <label class="control-label col-md-3" for="name">Name</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" id=name formControlName="name"/>
+              <div class="text-danger" *ngIf="form.controls.name.touched || form.controls.name.dirty">
+                <div [hidden]="!form.controls.name.hasError('required')">Name is required</div>
+                <div [hidden]="!form.controls.name.hasError('minlength')">Minimum 3 characters required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-md-3" for="price">Price</label>
+              <div class="col-md-9">
+                <input type="number" class="form-control" id="price" formControlName="price"/>
+                <div class="text-danger" *ngIf="form.controls.price.touched || form.controls.price.dirty">
+                    <div [hidden]="!form.controls.price.hasError('required')">Price is required</div>
+                    <div *ngIf="form.controls.price.hasError('min')">Minimum value is {{form.controls.price.errors.min.min}}</div>
+                    <div *ngIf="form.controls.price.hasError('max')">Maximum value is {{form.controls.price.errors.max.max}}</div>
+                  </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3" for="mfgDate">Mfg Date</label>
+                <div class="col-md-9">
+                  <input type="date" class="form-control" id="mfgDate" formControlName="mfgDate"/>
+                  <div class="text-danger" *ngIf="form.controls.mfgDate.touched || form.controls.mfgDate.dirty">
+                      <div [hidden]="!form.controls.mfgDate.hasError('required')">Date is required</div>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-md-3" for="category">Category</label>
+                  <div class="col-md-9">
+                    <select class="form-control" id="category" formControlName="categoryId">
+                        <option value="" selected>--Select--</option>
+                        <option *ngFor="let c of categories" value="{{c.id}}">{{c.name}}</option>
+                    </select>
+                    <div class="text-danger" *ngIf="form.controls.categoryId.touched || form.controls.categoryId.dirty">
+                        <div [hidden]="!form.controls.categoryId.hasError('required')">Category is required</div>
+                      </div>
+                  </div>
+                </div>
+          <div class="form-group">
+              <div class="col-md-9 col-md-offset-3">
+                <button type="submit" class="btn btn-primary">
+                  <span class="glyphicon glyphicon-save"></span>Save
+                </button>
+              </div>
+            </div>
+    </form>
+  </div>
+</div>
