@@ -13,6 +13,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ProductService } from './services/product.service';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { MinValidator } from './validators/min-validator.directive';
+import { MaxValidator } from './validators/max-validator.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ProductListComponent } from './components/product-list/product-list.com
     PageNotFoundComponent,
     ContactComponent,
     AddProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    MinValidator,
+    MaxValidator
   ],
   imports: [
     BrowserModule,
