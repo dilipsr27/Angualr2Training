@@ -13,7 +13,7 @@ export class HomeComponent{
   private today:Date;
 
   private colors:string[]=['red','green','blue'];
-  private products:Product[]=[
+  private products:any[]=[
   {id:101,name:'Book',price:1250,mfgDate:new Date(2016,1,8)},
   {id:102,name:'Pen',price:1200,mfgDate:new Date(2017,4,8)},
   {id:103,name:'Coca Cola',price:1000,mfgDate:new Date(2016,3,2)},
