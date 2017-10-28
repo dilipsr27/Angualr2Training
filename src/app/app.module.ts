@@ -15,6 +15,7 @@ import { ProductService } from './services/product.service';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { MinValidator } from './validators/min-validator.directive';
 import { MaxValidator } from './validators/max-validator.directive';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MaxValidator } from './validators/max-validator.directive';
     AddProductComponent,
     ProductListComponent,
     MinValidator,
-    MaxValidator
+    MaxValidator,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

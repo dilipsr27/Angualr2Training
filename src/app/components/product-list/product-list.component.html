@@ -4,6 +4,7 @@
     <div class="thumbnail thumbnail-item">
       <h3>{{p.name}}</h3>
       <p>Price: {{p.price}}</p>
+      <p><a [routerLink]="['/edit',p.id]">Edit</a></p>
       <p>
         <a class="btn btn-success" [routerLink]="['/add-cart',p.id]">Add To Cart</a>
         <a class="btn btn-info" [routerLink]="['/add-cart',p.id]">Add To Wishlist</a>
