@@ -18,9 +18,17 @@
           <div class="form-group">
               <label class="control-label col-md-3" for="price">Price</label>
               <div class="col-md-9">
-                <input type="number" min="1" max="10000" class="form-control" id="price" #price="ngModel" [(ngModel)]="product.price" name="price" min="1" max="10000"  required/>
+                <input type="number" minimum="1" maximum="10000" class="form-control" id="price" #price="ngModel" [(ngModel)]="product.price" name="price" min="1" max="10000"  required/>
                 <div *ngIf="price.touched && price.invalid" class="text-danger">
                     <div [hidden]="!price.errors.required">Product price is required</div>
+                    <!--<div [hidden]="!price.errors.minimum">Minimum is 1</div>
+                    <div [hidden]="!price.errors.maximum">Maximum is 10000</div>-->
+                    <div *ngIf="price.errors.minimum && price.errors.minimum.value">
+                      Minimum is {{price.errors.minimum.value}}, you entered {{price.errors.minimum.actual}}
+                    </div>
+                    <div *ngIf="price.errors.maximum && price.errors.maximum.value">
+                      Maximum is {{price.errors.maximum.value}}, you entered {{price.errors.maximum.actual}}
+                    </div>
                   </div>
               </div>
             </div>
