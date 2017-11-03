@@ -18,6 +18,8 @@ export class EditProductComponent implements OnInit {
   private product:Product;
   private form:FormGroup;
   private categories:Category[];
+  private hasError:boolean=false;
+  private errorMessage:string;
   constructor(private router:Router, 
               private route:ActivatedRoute, 
               private fb:FormBuilder,
@@ -57,10 +59,17 @@ export class EditProductComponent implements OnInit {
 
   public update(){
     if(this.form.valid){
-      this.productSvc.updateProduct(this.form.value); // save to data source
-      this.router.navigate(['/list']);
+      this.productSvc.updateProduct(this.form.value)
+      .subscribe(
+        data=>this.router.navigate(['/list']),
+        err=>{
+        this.hasError = true;
+        this.errorMessage = "Unable to update the product";
+    }); // save to data source
+      
     }else{
-      alert('Invalid');
+      this.hasError = true;
+      this.errorMessage = "Unable to update the product";
     }
   }
 

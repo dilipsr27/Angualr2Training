@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../../models/category';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CategoryService } from '../../services/category.service';
 
 
@@ -16,12 +16,12 @@ export class AddProductComponent implements OnInit {
   private product:Product;
   private hasError;
   private errorMessage;
-  constructor(private productSvc:ProductService, private categorySvc:CategoryService, private router:Router) { 
+  constructor(private productSvc:ProductService, private categorySvc:CategoryService, private router:Router,private route:ActivatedRoute, ) { 
     this.product = new Product()
   }
 
   ngOnInit() {
-    this.categories = this.categorySvc.getCategories();
+    this.categories = this.route.snapshot.data['categories'];
   }
 
   public save(frm){

@@ -12,7 +12,7 @@ import { CategoryResolver } from '../resolver/category.resolver';
 var routes:Route[]=[
   {path:'',component:HomeComponent},
   {path:'contact',component:ContactComponent},
-  {path:'new',component:AddProductComponent},
+  {path:'new',component:AddProductComponent,resolve:{categories:CategoryResolver}},
   {path:'list',component:ProductListComponent},
   {path:'edit/:id',component:EditProductComponent, resolve:{product:ProductResolver, categories:CategoryResolver}},
  {path:'**',component:PageNotFoundComponent}

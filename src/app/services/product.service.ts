@@ -51,13 +51,16 @@ export class ProductService {
     .map(data=>data.json())
     .catch(err=> err)
   }
-  public updateProduct(product:Product):void{
-    // this.products.forEach((item,index)=>{
-    //   if(item.id==product.id){
-    //     this.products.splice(index,1, product);
-    //   }
-    // });
-    //this.products.push(product);
-    return null;
+  public updateProduct(product:Product):Observable<Product>{
+    let requestHeaders = new Headers({
+      "Content-Type":"application/json",
+      "Accept":"application/json"
+    });
+    let options = new RequestOptions({
+      headers: requestHeaders
+    })
+    return this.http.put(`${this.API_URL}/${product.id}`, product, options)
+    .map(data=>data.json())
+    .catch(err=> err);
   }
 }
