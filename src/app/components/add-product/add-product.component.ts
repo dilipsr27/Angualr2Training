@@ -14,6 +14,8 @@ import { CategoryService } from '../../services/category.service';
 export class AddProductComponent implements OnInit {
   private categories:Category[];
   private product:Product;
+  private hasError;
+  private errorMessage;
   constructor(private productSvc:ProductService, private categorySvc:CategoryService, private router:Router) { 
     this.product = new Product()
   }
@@ -24,8 +26,18 @@ export class AddProductComponent implements OnInit {
 
   public save(frm){
     if(frm.valid){
-     this.productSvc.addProducts(this.product);
-     this.router.navigate(['/list']);
+     this.productSvc.addProducts(this.product)
+     .subscribe(
+       data=>{
+         console.log(data);
+         this.router.navigate(['/list']);
+       },
+       err=>{
+         this.hasError = true;
+         this.errorMessage = "Unable to add new Product";
+       }
+     );
+     
     }else{
       alert("Invalid Form")
     }
