@@ -26,9 +26,11 @@ export class EditProductComponent implements OnInit {
               private datePipe:DatePipe) { }
 
   ngOnInit() {
-    this.categories = this.categorySvc.getCategories();
+    this.categories = this.route.snapshot.data['categories'];
     this.id = this.route.snapshot.params.id;
-    this.product = this.productSvc.getProduct(this.id);
+    // this.product = this.productSvc.getProduct(this.id);
+    this.product = this.route.snapshot.data['product'];
+     
     
     var nameControl = new FormControl(this.product.name, Validators.compose([Validators.required, Validators.minLength(3)]));
 

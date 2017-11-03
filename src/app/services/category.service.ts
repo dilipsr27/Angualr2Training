@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Category } from '../models/category';
+import {Http, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
+@Injectable()
 export class CategoryService {
-  private categories:Category[]=[
-    {id:1, name:'Electronics', description:'Mobiles and Laptops'},
-    {id:2, name:'Home appliances', description:'House hold items'},
-    {id:3, name:'Cosmetics', description:'Cosmetic items'}
-  ];
-  constructor() { }
+  private API_URL:string="http://bst-products-api.azurewebsites.net/api/categories";
+  constructor(private http:Http) { }
 
-  public getCategories():Category[]{
-    return this.categories;
+  public getCategories():Observable<Category[]>{
+    
+    return this.http.get(this.API_URL)
+    .map(data=>data.json())
+    .catch(err=>err)
   }
 
 }

@@ -33,19 +33,23 @@ export class ProductService {
     .map((resp:Response)=>resp.json())
     .catch(err=>err)
   }
-  public getProduct(id:number):Product{
-    // var product:Product=null;
-    // this.products.forEach((item,index)=>{
-    //   if(item.id==id){
-    //     product = item;
-    //   }
-    // })
-    return null;
+  public getProduct(id:number):Observable<Product>{
+    let requestHeaders = new Headers({
+      "Content-Type":"application/json",
+      "Accept":"application/json"
+    });
+    let options = new RequestOptions({
+      headers: requestHeaders
+    })
+    
+    return this.http.get(`${this.API_URL}/${id}`,options)
+    .map((resp:Response)=>resp.json())
+    .catch(err=>err)
   }
   public addProducts(product:Product):Observable<Product>{
     return this.http.post(this.API_URL, product)
     .map(data=>data.json())
-    .catch(err=>Observable.throw(err))
+    .catch(err=> err)
   }
   public updateProduct(product:Product):void{
     // this.products.forEach((item,index)=>{
