@@ -21,6 +21,8 @@ import { CategoryService } from './services/category.service';
 import { ProductResolver } from './resolver/product.resolver';
 import { CategoryResolver } from './resolver/category.resolver';
 import { UnsavedComponentGuard } from './guards/unsaved.guard';
+import { SearchComponent } from './components/search/search.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { UnsavedComponentGuard } from './guards/unsaved.guard';
     ProductListComponent,
     MinValidator,
     MaxValidator,
-    EditProductComponent
+    EditProductComponent,
+    SearchComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

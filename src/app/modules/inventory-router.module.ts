@@ -9,6 +9,7 @@ import { EditProductComponent } from '../components/edit-product/edit-product.co
 import { ProductResolver } from '../resolver/product.resolver';
 import { CategoryResolver } from '../resolver/category.resolver';
 import { UnsavedComponentGuard } from '../guards/unsaved.guard';
+import { SearchComponent } from '../components/search/search.component';
 
 var routes:Route[]=[
   {path:'',component:HomeComponent},
@@ -17,6 +18,7 @@ var routes:Route[]=[
   {path:'list',component:ProductListComponent},
   {path:'edit/:id',component:EditProductComponent, resolve:{product:ProductResolver, categories:CategoryResolver},
   canDeactivate:[UnsavedComponentGuard]},
+  {path:'search',component:SearchComponent},
  {path:'**',component:PageNotFoundComponent}
 ]
 @NgModule({

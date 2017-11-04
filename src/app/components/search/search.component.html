@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Search Products</h2>
+    <search-bar (search)="onSearch($event)"></search-bar>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div *ngIf="result; else noresult">
+      <h4>Search Result</h4>
+      <table class="table table-bordered table-stripped table-condensed">
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Mfg Date</th>
+        </tr>
+        <tr *ngFor="let p of result; let i=index">
+          <td>{{p.name}}</td>
+          <td>{{p.price}}</td>
+          <td>{{p.mfgDate}}</td>
+        </tr>
+      </table>
+    </div>
+    <ng-template #noresult>No results found!</ng-template>
+  </div>
+</div>
