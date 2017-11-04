@@ -19,6 +19,7 @@ var routes:Route[]=[
   {path:'edit/:id',component:EditProductComponent, resolve:{product:ProductResolver, categories:CategoryResolver},
   canDeactivate:[UnsavedComponentGuard]},
   {path:'search',component:SearchComponent},
+  {path:'categories',loadChildren:'app/category-module/category.module#CategoryModule'},
  {path:'**',component:PageNotFoundComponent}
 ]
 @NgModule({
