@@ -10,9 +10,11 @@ import { ProductResolver } from '../resolver/product.resolver';
 import { CategoryResolver } from '../resolver/category.resolver';
 import { UnsavedComponentGuard } from '../guards/unsaved.guard';
 import { SearchComponent } from '../components/search/search.component';
+import { LoginComponent } from '../components/login/login.component';
 
 var routes:Route[]=[
-  {path:'',component:HomeComponent},
+  {path:'',component:LoginComponent},
+  {path:'home',component:HomeComponent},
   {path:'contact',component:ContactComponent},
   {path:'new',component:AddProductComponent,resolve:{categories:CategoryResolver}},
   {path:'list',component:ProductListComponent},

@@ -25,6 +25,9 @@ import { UnsavedComponentGuard } from './guards/unsaved.guard';
 import { SearchComponent } from './components/search/search.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { DataInterceptors } from './interceptors/data-interceptors';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -42,7 +45,15 @@ import { DataInterceptors } from './interceptors/data-interceptors';
     MaxValidator,
     EditProductComponent,
     SearchComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    UserLoginComponent,
+    AdminLoginComponent,
+    LoginComponent
+  ],
+  entryComponents:[
+    UserLoginComponent,
+    AdminLoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
