@@ -4,6 +4,7 @@ import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CategoryService } from '../../services/category.service';
+import { UnsavedComponentBase } from '../../guards/unsaved.guard';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { CategoryService } from '../../services/category.service';
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class AddProductComponent implements OnInit, UnsavedComponentBase {
   private categories:Category[];
   private product:Product;
   private hasError;

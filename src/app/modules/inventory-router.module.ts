@@ -8,13 +8,15 @@ import { ProductListComponent } from '../components/product-list/product-list.co
 import { EditProductComponent } from '../components/edit-product/edit-product.component';
 import { ProductResolver } from '../resolver/product.resolver';
 import { CategoryResolver } from '../resolver/category.resolver';
+import { UnsavedComponentGuard } from '../guards/unsaved.guard';
 
 var routes:Route[]=[
   {path:'',component:HomeComponent},
   {path:'contact',component:ContactComponent},
   {path:'new',component:AddProductComponent,resolve:{categories:CategoryResolver}},
   {path:'list',component:ProductListComponent},
-  {path:'edit/:id',component:EditProductComponent, resolve:{product:ProductResolver, categories:CategoryResolver}},
+  {path:'edit/:id',component:EditProductComponent, resolve:{product:ProductResolver, categories:CategoryResolver},
+  canDeactivate:[UnsavedComponentGuard]},
  {path:'**',component:PageNotFoundComponent}
 ]
 @NgModule({

@@ -6,6 +6,7 @@ import { Product } from '../../models/product';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Category } from '../../models/category';
 import { DatePipe } from '@angular/common';
+import { UnsavedComponentBase } from '../../guards/unsaved.guard';
 
 @Component({
   selector: 'edit-product',
@@ -13,7 +14,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./edit-product.component.css'],
   providers:[DatePipe]
 })
-export class EditProductComponent implements OnInit {
+export class EditProductComponent implements OnInit, UnsavedComponentBase {
   private id:number;
   private product:Product;
   private form:FormGroup;

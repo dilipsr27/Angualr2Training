@@ -20,6 +20,7 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
 import { CategoryService } from './services/category.service';
 import { ProductResolver } from './resolver/product.resolver';
 import { CategoryResolver } from './resolver/category.resolver';
+import { UnsavedComponentGuard } from './guards/unsaved.guard';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { CategoryResolver } from './resolver/category.resolver';
     InventoryRouterModule,
     HttpModule
   ],
-  providers: [ProductService, CategoryService, ProductResolver,CategoryResolver],
+  providers: [ProductService, CategoryService, ProductResolver,CategoryResolver,UnsavedComponentGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
