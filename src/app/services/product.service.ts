@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
 
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -17,21 +18,33 @@ export class ProductService {
   //   {id:3, name:'Redmi', price:140, mfgDate:new Date(), categoryId:1}
   // ];
   
-  constructor(private http:Http) { }
+  constructor(private http:Http, private httpClient:HttpClient) { }
  
   public getProducts(): Observable<Product[]>{
 
-    let requestHeaders = new Headers({
+    // let requestHeaders = new Headers({
+    //   "Content-Type":"application/json",
+    //   "Accept":"application/json"
+    // });
+    // let options = new RequestOptions({
+    //   headers: requestHeaders
+    // })
+    
+    // return this.http.get(this.API_URL,options)
+    // .map((resp:Response)=>resp.json())
+    // .catch(err=>err) // using http
+
+
+    // using httpClient 
+    let httpHeaders = new HttpHeaders({
       "Content-Type":"application/json",
       "Accept":"application/json"
-    });
-    let options = new RequestOptions({
-      headers: requestHeaders
     })
-    
-    return this.http.get(this.API_URL,options)
-    .map((resp:Response)=>resp.json())
-    .catch(err=>err)
+    let options ={
+         headers: httpHeaders
+       }
+
+       return this.httpClient.get<Product[]>(this.API_URL,options)
   }
   public getProduct(id:number):Observable<Product>{
     let requestHeaders = new Headers({

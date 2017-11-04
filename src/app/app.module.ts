@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import{HttpModule} from '@angular/http';
+import{HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,6 +24,8 @@ import { CategoryResolver } from './resolver/category.resolver';
 import { UnsavedComponentGuard } from './guards/unsaved.guard';
 import { SearchComponent } from './components/search/search.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { DataInterceptors } from './interceptors/data-interceptors';
+
 
 @NgModule({
   declarations: [
@@ -46,9 +49,15 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     FormsModule,
     ReactiveFormsModule,
     InventoryRouterModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [ProductService, CategoryService, ProductResolver,CategoryResolver,UnsavedComponentGuard],
+  providers: [ProductService, CategoryService, ProductResolver,CategoryResolver,UnsavedComponentGuard,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: DataInterceptors,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
