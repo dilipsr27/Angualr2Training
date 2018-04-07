@@ -1,7 +1,7 @@
 # Angluardemo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.5.
-Use command 'npm install -g @angular/cli' and this will install initial setup of the project
+Use command `npm install -g @angular/cli` and this will install initial setup of the project
 
 
 ## Prerequisites
